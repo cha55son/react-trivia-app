@@ -64,18 +64,18 @@ function QuestionsView(params: QuestionsViewParams) {
                 <span>{currentQuestionIdx + 1} of {params.questions.length}</span>
             </div>
             {question && (<>
-                <div className="flex flex-col justify-center min-h-[50%]">
+                <div className="flex-1 flex flex-col justify-center min-h-[25%]">
                     <BlockTitle>{question.category}</BlockTitle>
                     <Block>
                         <p className="text-2xl text-center" dangerouslySetInnerHTML={ { __html: question.question } }></p>
                     </Block>
                 </div>
                 <div className="flex w-full items-center p-4">
-                    <p className="text-2xl h-9 w-9 flex items-center justify-center rounded-lg" style={ { backgroundColor: 'rgba(200, 200, 200, 0.5)' } }>{streak}</p>
+                    <p className="text-2xl h-9 w-9 flex items-center justify-center rounded-lg bg-ios-light-surface-1 dark:bg-ios-dark-surface-1">{streak}</p>
                     <div className="flex-1"></div>
                     <div className={`self-end pie-timer ${resetTimer ? "animate" : ""}`} style={{ animationDuration: params.answerDuration + 'ms' }}></div>
                 </div>
-                <div className="mx-4 flex flex-col gap-y-4">
+                <div className="mx-4 flex flex-col gap-y-4 mb-4">
                     {randomAnswers.map(answer => {
                         const isWrongAnswer = selectedAnswer === answer && answer !== question?.correct_answer;
                         const isCorrectAnswer = selectedAnswer !== null && answer === question?.correct_answer;
