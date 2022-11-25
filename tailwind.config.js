@@ -13,5 +13,6 @@ module.exports = konstaConfig({
       'brand-red': '#CE3765',
       'brand-green': '#9FE369',
     }
-  }
+  },
+  darkMode: 'class'
 });

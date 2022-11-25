@@ -5,6 +5,7 @@ import PreparingView from "./preparing-view/PreparingView";
 import { Page } from "konsta/react";
 import { useNavigate } from "react-router-dom";
 import TriviaServiceImpl from "../../services/TriviaService";
+import Tunnel from "../effects/Tunnel";
 
 interface OptionsParams {
     setQuestions: React.Dispatch<React.SetStateAction<TriviaQuestion[]>>;
