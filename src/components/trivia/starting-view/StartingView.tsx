@@ -1,24 +1,24 @@
-import "./StartingView.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useAnimationControls } from "framer-motion"
 
-function StartingView(params: { complete: () => void }) {
+function StartingView(props: { complete: () => void }) {
+    const controls = useAnimationControls();
     const [countDown, setCountDown] = useState(3);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-           setCountDown(cd => cd - 1);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
-    useEffect(() => {
-       if (countDown > 0) return;
-       params.complete();
-    }, [countDown]);
+    const sequence = async () => {
+        while (countDownRef.current > 0) {
+            await controls.start({ scale: [3, 1], opacity: [1, 0], transition: { duration: 1 } })
+            setCountDown(cd => cd - 1);
+        }
+        props.complete();
+    };
+
+    useEffect(() => { sequence() }, []);
 
     return (
         <>
             <h1 className="text-center text-4xl">Get ready! Starting in</h1>
-            <p className="self-center my-8 count-down-text">{countDown}</p>
+            <motion.p className="self-center my-8" animate={controls}>{countDown}</motion.p>
         </>
     );
 }

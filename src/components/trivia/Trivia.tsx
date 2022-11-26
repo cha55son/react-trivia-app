@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import StartingView from "./starting-view/StartingView";
 import QuestionsView from "./questions-view/QuestionsView";
 import { Page } from "konsta/react";
