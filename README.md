@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# React Trivia App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app is my foray into a react app. Most of my experience has been with Angular, so I
+wanted to take the time to build in another modern framework. 
 
-## Available Scripts
+### Goal
 
-In the project directory, you can run:
+My goal was to create a functional app that utilizes libraries and frameworks that would be commonplace 
+for professional development. I did set limits on myself, so I don't spend too much time on a 
+learning project. Therefore, I'll cover my next steps in the section below.
+Below you will find the major components of the app and my thoughts on them.
 
-### `npm start`
+NOTE: I deliberately skipped error-handling/testing and that was not the focus of this project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Learning react
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Ideally the latest version which pushed the functional components heavily. 
+So while some things could have been easier with the class approach I wanted it to work
+the preferred way. Overall I had a good time building this app.
 
-### `npm test`
+#### Mobile approach
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I've primarily built web apps for desktops so thought this would be a fun exercise.
 
-### `npm run build`
+#### Routing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Any significant app will use this and found it wasn't drastically different from Angular.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Design library
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+My biggest pro for design libraries is consistency so had to pull one of these in. I wanted to
+use something other than Bootstrap, ideally mobile inspired. That's how I found [konsta](https://konstaui.com/).
 
-### `npm run eject`
+#### Styling paradigm
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I've always created custom CSS for specially styled components. (i.e. components different from
+the design library) Therefore I was actively looking for something drastically different. 
+I found [tailwind](https://tailwindcss.com/) which has a utility-first approach that I feel worked 
+very well for rapid prototyping.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### State management
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Had a two pass approach to this. Built the app with only react's `useState`. Which was a bit tedious as
+it required passing many references down multiple components. Once complete, I refactored to redux as I typically 
+prefer a central state store for any significant app. The concepts I have from NgRx translated nicely as well. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Animations
 
-## Learn More
+Unfortunately animations always get a backseat to functionality but I really enjoy animations so I 
+pulled in some one D3 animations as some backgrounds. I also looked into `framer-motion` for programatic 
+control over animations. This helped with the count down and I'd love to explore this more.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Next Steps
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If I were to continue this project here are some pieces I would flesh out further:
+
+* adfads
+* 
