@@ -4,7 +4,7 @@ This is a learning project I'm doing in 10-20 hours to better understand react
 and related libraries. It's your standard trivia app taking inspiration from
 Netflix's Triviaverse and other games. Check out the video below to see it in action:
 
-`<video here>`
+https://user-images.githubusercontent.com/879295/204111986-94be708c-0286-4033-84aa-360dfe3e6644.mp4
 
 ### Goal
 
@@ -25,6 +25,7 @@ a huge change from the concepts in Angular so easy enough to pick up.
 #### Mobile approach
 
 I've primarily built web apps for desktops so thought this would be a fun exercise.
+I kept all the buttons to the mid or lower portion of the screen to make it easier to hit with your thumb.
 
 #### Routing
 
