@@ -1,45 +1,34 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { Difficulty, TriviaQuestion } from "../../App";
+import React, { useEffect, useState } from "react";
 import OptionsView from "./options-view/OptionsView";
 import PreparingView from "./preparing-view/PreparingView";
 import { Page } from "konsta/react";
 import { useNavigate } from "react-router-dom";
-import TriviaServiceImpl from "../../services/TriviaService";
-import Tunnel from "../effects/Tunnel";
+import { selectDifficulty } from "../../store/trivia/trivia.selectors";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { reset } from "../../store/trivia/trivia.slice";
+import { fetchQuestions } from "../../store/trivia/trivia.thunks";
 
-interface OptionsParams {
-    setQuestions: React.Dispatch<React.SetStateAction<TriviaQuestion[]>>;
-    difficulty: Difficulty;
-    setDifficulty: React.Dispatch<React.SetStateAction<Difficulty>>;
-    answerDuration: number;
-    setAnswerDuration: React.Dispatch<React.SetStateAction<number>>;
-    setAttempted: Dispatch<SetStateAction<number>>;
-    setCorrectAnswers: Dispatch<SetStateAction<number>>;
-}
-
-function Options(params: OptionsParams) {
-    const [preparingGame, setPreparingGame] = useState<boolean>(false);
+function Options() {
+    const difficulty = useAppSelector(selectDifficulty);
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
+    const [preparingGame, setPreparingGame] = useState<boolean>(false);
+
     useEffect(() => {
-        params.setQuestions([]);
-        params.setAttempted(0);
-        params.setCorrectAnswers(0);
+        dispatch(reset());
     }, []);
 
-    const startNewGame = () => {
-      TriviaServiceImpl.getQuestions(params.difficulty)
-            .then(questions => params.setQuestions(questions))
-            .then(() => navigate("/trivia"));
+    const startNewGame = async () => {
+        await dispatch(fetchQuestions(difficulty));
+        navigate("/trivia");
     };
 
     return (
         <Page className="flex flex-col justify-center">
             {!preparingGame ?
-                <OptionsView difficulty={params.difficulty} setDifficulty={params.setDifficulty}
-                             answerDuration={params.answerDuration} setAnswerDuration={params.setAnswerDuration}
-                             complete={() => setPreparingGame(true)} /> :
-                <PreparingView difficulty={params.difficulty} setQuestions={params.setQuestions} complete={startNewGame} />
+                <OptionsView complete={() => setPreparingGame(true)} /> :
+                <PreparingView complete={startNewGame} />
             }
         </Page>
     );

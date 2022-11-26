@@ -1,4 +1,4 @@
-import { Difficulty, TriviaQuestion } from "../App";
+import { Difficulty, TriviaQuestion } from "../store/trivia/trivia.types";
 
 const TRIVIA_URL = "https://opentdb.com/api.php";
 const defaultParams = { amount: "10", difficulty: "easy" };

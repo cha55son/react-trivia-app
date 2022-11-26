@@ -1,5 +1,5 @@
 import "./StartingView.scss";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function StartingView(params: { complete: () => void }) {
     const [countDown, setCountDown] = useState(3);

@@ -1,63 +1,29 @@
-//.questions-view {
-//
-//  button {
-//    margin-bottom: 20px;
-//  }
-//  .progress-box {
-//    position: absolute;
-//    top: 10px;
-//    right: 10px;
-//    display: flex;
-//    align-items: center;
-//    justify-content: center;
-//
-//    .progress {
-//      margin-right: 15px;
-//    }
-//  }
-//
-//  .question-text {
-//    text-align: center;
-//    font-size: 20px;
-//    margin-bottom: 100px;
-//  }
-//
-//  .possible-answers {
-//    //transform: rotatex(10deg);
-//    //animation: rotateAngle 6s linear infinite;
-//    display: flex;
-//    flex-direction: column;
-//    justify-content: center;
-//  }
-//
-//
-  /**
-    Awesome write-up here: https://css-tricks.com/css-pie-timer-re-revisited/
-    Not cross-browser but we're having fun, right?
-   */
-  @property --percentage {
-    initial-value: 0%;
-    inherits: false;
-    syntax: "<percentage>";
+/**
+  Awesome write-up here: https://css-tricks.com/css-pie-timer-re-revisited/
+  Not cross-browser but we're having fun, right?
+ */
+@property --percentage {
+  initial-value: 0%;
+  inherits: false;
+  syntax: "<percentage>";
+}
+@keyframes timer {
+  to {
+    --percentage: 100%;
   }
-  @keyframes timer {
-    to {
-      --percentage: 100%;
-    }
-  }
-  .pie-timer {
-    background: conic-gradient(#4473FC var(--percentage), transparent 0);
-    border-radius: 50%;
-    border: 2px #4473FC solid;
-    width: 40px;
-    height: 40px;
+}
+.pie-timer {
+  background: conic-gradient(#4473FC var(--percentage), transparent 0);
+  border-radius: 50%;
+  border: 2px #4473FC solid;
+  width: 40px;
+  height: 40px;
 
-    &.animate {
-      // Set by the component
-      // animation-duration: 10s;
-      animation-timing-function: linear;
-      animation-iteration-count: 1;
-      animation-name: timer;
-    }
+  &.animate {
+    // Set by the component
+    // animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-name: timer;
   }
-//}
+}
